@@ -1,0 +1,439 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Tokens da marca Campos Visnadi.
+   Cores amostradas dos arquivos oficiais do logo (skill institucional); não
+   são valores de manual certificado. Os tokens shadcn abaixo são mapeados
+   para a marca — quando houver conflito, a marca vence.
+   ------------------------------------------------------------------------- */
+:root {
+  --cv-paper: #f8f6f3;
+  --cv-surface: #ffffff;
+  --cv-roxo-950: #12061a;
+  --cv-roxo-900: #1a0a24;
+  --cv-roxo-800: #2c0f3c;
+  --cv-roxo-700: #411558;
+  --cv-roxo-500: #732593;
+  --cv-roxo-100: #f1eaf5;
+  --cv-magenta-600: #a81d6c; /* texto de destaque sobre claro (≈6,9:1 em paper) */
+  --cv-magenta-500: #c0247e; /* foco e acentos */
+  --cv-magenta-300: #e27bb5; /* destaque sobre roxo (≈6,4:1) */
+  --cv-laranja-500: #e07b2e; /* só gráfico sobre claro; texto apenas sobre roxo */
+  --cv-ink: #211a27; /* ≈15,6:1 em paper */
+  --cv-muted: #645d6a; /* ≈6,1:1 em paper */
+  --cv-line: #e6dfe8;
+  --cv-line-strong: #c9c0cc;
+  --cv-input-line: #857b8b; /* borda de campo: ≥3:1 (WCAG 1.4.11) */
+  --cv-on-dark: #f8f6f3;
+  --cv-on-dark-muted: #c4b9cb; /* ≈10:1 em roxo-900 */
+  --cv-success: #2f7a5b;
+  --cv-error: #b3261e;
+  --cv-gradient: linear-gradient(135deg, #1a0a24 0%, #c0247e 55%, #e07b2e 100%);
+  --cv-gradient-accent: linear-gradient(90deg, #c0247e 0%, #e07b2e 100%);
+
+  --shadow-rest: 0 1px 2px rgb(26 10 36 / 0.06);
+  --shadow-lift: 0 10px 28px -8px rgb(26 10 36 / 0.16);
+
+  --header-h: 72px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* shadcn */
+  --background: var(--cv-paper);
+  --foreground: var(--cv-ink);
+  --card: var(--cv-surface);
+  --card-foreground: var(--cv-ink);
+  --popover: var(--cv-surface);
+  --popover-foreground: var(--cv-ink);
+  --primary: var(--cv-roxo-900);
+  --primary-foreground: var(--cv-on-dark);
+  --secondary: var(--cv-magenta-500);
+  --secondary-foreground: #ffffff;
+  --muted: var(--cv-roxo-100);
+  --muted-foreground: var(--cv-muted);
+  --accent: var(--cv-roxo-100);
+  --accent-foreground: var(--cv-roxo-900);
+  --destructive: var(--cv-error);
+  --border: var(--cv-line);
+  --input: var(--cv-line-strong);
+  --ring: var(--cv-magenta-500);
+  --radius: 0.75rem;
+}
+
+/* Escopo escuro (hero, abordagem, rodapé): reaproveita os tokens shadcn. */
+.surface-dark {
+  --background: var(--cv-roxo-900);
+  --foreground: var(--cv-on-dark);
+  --muted-foreground: var(--cv-on-dark-muted);
+  --border: rgb(248 246 243 / 0.14);
+  --primary: var(--cv-on-dark);
+  --primary-foreground: var(--cv-roxo-900);
+  --secondary: var(--cv-magenta-300);
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-paper: var(--cv-paper);
+  --color-surface: var(--cv-surface);
+  --color-roxo-950: var(--cv-roxo-950);
+  --color-roxo-900: var(--cv-roxo-900);
+  --color-roxo-800: var(--cv-roxo-800);
+  --color-roxo-700: var(--cv-roxo-700);
+  --color-roxo-500: var(--cv-roxo-500);
+  --color-roxo-100: var(--cv-roxo-100);
+  --color-magenta-600: var(--cv-magenta-600);
+  --color-magenta-500: var(--cv-magenta-500);
+  --color-magenta-300: var(--cv-magenta-300);
+  --color-laranja-500: var(--cv-laranja-500);
+  --color-ink: var(--cv-ink);
+  --color-muted-ink: var(--cv-muted);
+  --color-line: var(--cv-line);
+  --color-line-strong: var(--cv-line-strong);
+  --color-input-line: var(--cv-input-line);
+  --color-on-dark: var(--cv-on-dark);
+  --color-on-dark-muted: var(--cv-on-dark-muted);
+  --color-success: var(--cv-success);
+  --color-error: var(--cv-error);
+
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-display: var(--font-display);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+
+  --ease-brand: var(--ease-out);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--cv-paper);
+    color: var(--cv-ink);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--cv-magenta-500);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--cv-magenta-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .surface-dark :focus-visible {
+    outline-color: var(--cv-magenta-300);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Layout
+   ------------------------------------------------------------------------- */
+@utility container-cv {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  @media (width >= 640px) {
+    padding-inline: 32px;
+  }
+  @media (width >= 1024px) {
+    padding-inline: 48px;
+  }
+}
+
+@utility section-y {
+  padding-block: 72px;
+  @media (width >= 768px) {
+    padding-block: 104px;
+  }
+  @media (width >= 1280px) {
+    padding-block: 136px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Tipografia — display condensado ecoa o logotipo; corpo humanista.
+   ------------------------------------------------------------------------- */
+@utility font-display {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-stretch: condensed;
+}
+
+@utility text-display {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 1.6rem + 6.2vw, 6.75rem);
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+@utility text-h2 {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+@utility text-h3 {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+@utility text-lead {
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+@utility eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------------
+   Botões
+   ------------------------------------------------------------------------- */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 48px;
+  padding: 0 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 180ms var(--ease-out),
+    color 180ms var(--ease-out),
+    border-color 180ms var(--ease-out),
+    box-shadow 180ms var(--ease-out),
+    transform 180ms var(--ease-out);
+  &:hover {
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+  & .btn-arrow {
+    transition: transform 200ms var(--ease-out);
+  }
+  &:hover .btn-arrow,
+  &:focus-visible .btn-arrow {
+    transform: translateX(3px);
+  }
+}
+
+@utility btn-primary {
+  background: var(--cv-roxo-900);
+  color: var(--cv-on-dark);
+  &:hover {
+    background: var(--cv-roxo-700);
+  }
+}
+
+@utility btn-light {
+  background: var(--cv-on-dark);
+  color: var(--cv-roxo-900);
+  &:hover {
+    background: #fff;
+    box-shadow: 0 0 0 4px rgb(248 246 243 / 0.16);
+  }
+}
+
+@utility btn-outline {
+  background: transparent;
+  color: currentColor;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+  &:hover {
+    background: rgb(26 10 36 / 0.05);
+  }
+}
+
+@utility btn-ghost-dark {
+  background: transparent;
+  color: var(--cv-on-dark);
+  box-shadow: inset 0 0 0 1.5px rgb(248 246 243 / 0.4);
+  &:hover {
+    box-shadow: inset 0 0 0 1.5px rgb(248 246 243 / 0.85);
+    background: rgb(248 246 243 / 0.06);
+  }
+}
+
+/* Barra de gradiente institucional: um destaque por bloco. */
+@utility rule-gradient {
+  height: 3px;
+  background: var(--cv-gradient-accent);
+  border-radius: 999px;
+}
+
+/* ---------------------------------------------------------------------------
+   Liquid metal (borda com shader). Fallback metálico em CSS até o WebGL
+   carregar ou quando ele não existir.
+   ------------------------------------------------------------------------- */
+.lm-frame {
+  position: relative;
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 2px;
+  isolation: isolate;
+  background: linear-gradient(
+    135deg,
+    #e9e4ec 0%,
+    #7b7280 30%,
+    #f6f3f8 52%,
+    #8d8492 76%,
+    #ddd7e1 100%
+  );
+  box-shadow:
+    0 1px 2px rgb(18 6 26 / 0.3),
+    0 10px 24px -10px rgb(18 6 26 / 0.55);
+}
+.lm-shader {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 500ms var(--ease-out);
+}
+.lm-shader[data-ready="true"] {
+  opacity: 1;
+}
+.lm-shader canvas {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+.lm-inner {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #2c0f3c 0%, #1a0a24 100%);
+  color: var(--cv-on-dark);
+  min-height: 48px;
+}
+.lm-inner:hover {
+  background: linear-gradient(180deg, #411558 0%, #2c0f3c 100%);
+  transform: none;
+}
+.lm-inner:focus-visible {
+  outline-offset: 5px;
+}
+
+/* ---------------------------------------------------------------------------
+   Movimento — entrada do hero via CSS (não depende de JS, não bloqueia CTA).
+   ------------------------------------------------------------------------- */
+@keyframes cv-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cv-draw {
+  from {
+    stroke-dashoffset: var(--len, 600);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes cv-plane {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.enter {
+  animation: cv-enter 560ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 75ms);
+}
+
+.enter-plane {
+  animation: cv-plane 700ms var(--ease-out) both;
+  animation-delay: calc(160ms + var(--i, 0) * 90ms);
+}
+
+.enter-draw {
+  stroke-dasharray: var(--len, 600);
+  animation: cv-draw 900ms var(--ease-out) both;
+  animation-delay: calc(300ms + var(--i, 0) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter,
+  .enter-plane,
+  .enter-draw {
+    animation: none;
+  }
+  .enter-draw {
+    stroke-dasharray: none;
+  }
+  .btn,
+  .btn:hover {
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
