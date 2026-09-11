@@ -1,36 +1,23 @@
 import { z } from "zod";
+import { LIMITS, MESSAGES } from "./rules";
 
-export const LIMITS = {
-  name: 120,
-  email: 160,
-  company: 120,
-  messageMin: 20,
-  messageMax: 1500,
-} as const;
+export { LIMITS };
 
+/** Validação de integridade no servidor. O cliente usa ./validate (sem zod). */
 export const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Informe seu nome.")
-    .max(LIMITS.name, `Use até ${LIMITS.name} caracteres.`),
+  name: z.string().trim().min(2, MESSAGES.nameMin).max(LIMITS.name, MESSAGES.nameMax),
   email: z
     .string()
     .trim()
-    .min(1, "Informe seu e-mail.")
-    .max(LIMITS.email, `Use até ${LIMITS.email} caracteres.`)
-    .pipe(z.email("Informe um e-mail válido, como nome@empresa.com.br.")),
-  company: z
-    .string()
-    .trim()
-    .max(LIMITS.company, `Use até ${LIMITS.company} caracteres.`)
-    .optional()
-    .default(""),
+    .min(1, MESSAGES.emailRequired)
+    .max(LIMITS.email, MESSAGES.emailMax)
+    .pipe(z.email(MESSAGES.emailInvalid)),
+  company: z.string().trim().max(LIMITS.company, MESSAGES.companyMax).optional().default(""),
   message: z
     .string()
     .trim()
-    .min(LIMITS.messageMin, `Descreva a necessidade em pelo menos ${LIMITS.messageMin} caracteres.`)
-    .max(LIMITS.messageMax, "Use até 1.500 caracteres — os detalhes podem ficar para a conversa."),
+    .min(LIMITS.messageMin, MESSAGES.messageMin)
+    .max(LIMITS.messageMax, MESSAGES.messageMax),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

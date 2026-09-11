@@ -4,7 +4,9 @@
 
 ## Assinatura
 
-**A diagonal do "V".** O corte diagonal do símbolo oficial (≈62°) vira o eixo da página: no hero, planos translúcidos — contrato, licença de software, política interna — se organizam ao longo dessa linha e convergem para um nó laranja (a decisão). A mesma diagonal reaparece, discreta, na seção Abordagem e no bloco Formas de atuação. É um gesto da marca, não um novo logo: o símbolo e o wordmark oficiais são usados sem alteração de forma.
+**A diagonal do "V" + o cartão do fundador.** O corte diagonal do símbolo oficial (≈62°) vira o eixo da página: atravessa o hero atrás do cartão e reaparece, discreto, na Abordagem e em Formas de atuação. É um gesto da marca, não um novo logo: símbolo e wordmark oficiais são usados sem alteração de forma.
+
+A pedido do cliente, o hero apresenta **quem responde pela marca**: um cartão em relevo com a foto recortada de Thiago de Campos Visnadi saindo do topo (camadas em `translateZ`, inclinação ≤ 6° ao ponteiro), placa com nome, cargo e OAB/SP. Na abertura, uma tela roxa com "Campos Visnadi" em cursiva (Great Vibes) é "escrita" e sobe, revelando o header e depois o cartão. A primeira versão do hero (planos translúcidos abstratos) foi substituída.
 
 ## Paleta (tokens em `src/app/globals.css`)
 
@@ -41,9 +43,10 @@ Ritmo: escuro (hero) → claro editorial (Contexto, lista numerada com divisóri
 
 | Onde | Técnica | Parâmetros |
 |------|---------|------------|
-| Entrada do hero | CSS keyframes (roda antes da hidratação) | 560 ms, Y 16 px, stagger 75 ms, fim ≈ 0,9 s |
-| Traços e planos do visual | CSS (dash + fade) | 700–900 ms, uma vez |
-| Ponteiro no visual | GSAP `quickTo` | máx. 6 px, só `hover:hover` + `pointer:fine` |
+| Abertura (cortina cursiva) | CSS puro; 1× por sessão (`sessionStorage`) | escrita 900 ms → sobe 720 ms; página entra em 1,75 s; desligada em reduced motion |
+| Header | CSS | desce 600 ms após a abertura |
+| Entrada do hero | CSS keyframes (roda antes da hidratação) | 560 ms, Y 16 px, stagger 75 ms |
+| Cartão do fundador | CSS (entrada) + variáveis CSS via `pointermove` (tilt) | 900 ms; tilt ≤ 6°, só ponteiro fino |
 | Revelação de seções | GSAP ScrollTrigger.batch | Y 20 px, 450 ms, uma vez; só oculta o que está abaixo da dobra depois do JS |
 | Botões | CSS | 180–200 ms, −1 px, seta +3 px |
 | Cards | CSS | −4 px máx., borda/sombra |
@@ -55,4 +58,8 @@ Ritmo: escuro (hero) → claro editorial (Contexto, lista numerada com divisóri
 
 ## O que foi evitado
 
-Martelos, balanças, colunas, apertos de mão, pessoas fictícias, dashboards falsos, partículas, glassmorphism, carrossel, cursor custom, tela de carregamento, três cards idênticos em linha.
+Martelos, balanças, colunas, apertos de mão, pessoas fictícias, dashboards falsos, partículas, glassmorphism, carrossel, cursor custom, três cards idênticos em linha.
+
+**Exceção deliberada:** o briefing original vetava telas de carregamento decorativas; o cliente pediu depois a abertura em cursiva. Ela foi mantida curta (≈1,9 s), independente de JS, exibida uma vez por sessão e desativada em reduced motion. Custo: atrasa a primeira visão do conteúdo — ver docs/validation.md.
+
+**Tipografia:** a abertura adiciona uma terceira família (Great Vibes, 1 peso, só na cortina). Exceção pedida pelo cliente à regra de duas famílias.

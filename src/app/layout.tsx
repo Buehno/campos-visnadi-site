@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
+import { Barlow_Condensed, Great_Vibes, Source_Sans_3 } from "next/font/google";
 import { firm } from "@/content/site";
 import { siteUrl, isIndexable } from "@/lib/site-config";
+import { IntroCurtain } from "@/components/layout/intro-curtain";
 import "./globals.css";
 
 // Display condensado ecoa o wordmark oficial (sans condensada em caixa alta).
@@ -20,9 +21,17 @@ const body = Source_Sans_3({
   display: "swap",
 });
 
-const title = `${firm.fullName} · Direito para empresas de tecnologia`;
+// Cursiva usada apenas na abertura.
+const script = Great_Vibes({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: "400",
+  display: "block",
+});
+
+const title = `${firm.fullName} · Advocacia empresarial em Jundiaí/SP`;
 const description =
-  "Assessoria jurídica com clareza e visão estratégica para empresas de tecnologia: contratos e negociações, propriedade intelectual e tecnologia, consultoria e compliance. Jundiaí/SP.";
+  "Soluções jurídicas para empresas: compliance e prevenção de fraudes, contratos, ações judiciais e processo civil, registro de marca, direito digital e proteção de dados. Jundiaí/SP.";
 
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
@@ -38,19 +47,28 @@ export const metadata: Metadata = {
     description,
   },
   twitter: { card: "summary_large_image", title, description },
-  robots: isIndexable
-    ? { index: true, follow: true }
-    : { index: false, follow: false },
+  robots: isIndexable ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
   themeColor: "#1a0a24",
 };
 
+// Marca a abertura como vista na sessão antes da primeira pintura.
+const introScript = `try{var k='cv-intro';if(sessionStorage.getItem(k))document.documentElement.classList.add('intro-seen');else sessionStorage.setItem(k,'1')}catch(e){}`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${display.variable} ${body.variable} ${script.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: introScript }} />
+      </head>
       <body>
+        <IntroCurtain />
         <a
           href="#conteudo"
           className="btn btn-primary fixed left-4 top-3 z-[100] -translate-y-24 focus:translate-y-0"

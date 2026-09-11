@@ -4,7 +4,9 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { AlertCircle, ArrowRight, CheckCircle2, Info, Loader2 } from "lucide-react";
 import { submitContact } from "@/app/actions/contact";
 import type { ContactState } from "@/lib/contact/handle";
-import { LIMITS, validateContact, type ContactField, type FieldErrors } from "@/lib/contact/schema";
+import { LIMITS } from "@/lib/contact/rules";
+import { validateContact } from "@/lib/contact/validate";
+import type { ContactField, FieldErrors } from "@/lib/contact/schema";
 import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
 import { cn } from "@/lib/utils";
 

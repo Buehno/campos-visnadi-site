@@ -420,7 +420,204 @@
   animation-delay: calc(300ms + var(--i, 0) * 90ms);
 }
 
+/* ---------------------------------------------------------------------------
+   Abertura em cortina (CSS puro). Duração total ≈ 1,9 s.
+   ------------------------------------------------------------------------- */
+:root {
+  --intro: 1.75s; /* momento em que a página começa a entrar */
+}
+.intro-seen {
+  --intro: 0s;
+}
+.cv-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--cv-roxo-900);
+  color: var(--cv-on-dark);
+  animation: cv-intro-up 720ms cubic-bezier(0.76, 0, 0.24, 1) 1.2s forwards;
+  pointer-events: none;
+}
+.intro-seen .cv-intro {
+  display: none;
+}
+.cv-intro-inner {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding-inline: 24px;
+}
+.cv-intro-script {
+  font-family: var(--font-script), cursive;
+  font-size: clamp(3.25rem, 2rem + 7vw, 7.5rem);
+  line-height: 1.1;
+  padding: 0 0.15em;
+  clip-path: inset(0 100% 0 0);
+  animation: cv-write 900ms cubic-bezier(0.65, 0, 0.35, 1) 120ms forwards;
+}
+.cv-intro-line {
+  height: 2px;
+  width: min(280px, 50vw);
+  background: var(--cv-gradient-accent);
+  border-radius: 999px;
+  transform: scaleX(0);
+  animation: cv-line 600ms var(--ease-out) 700ms forwards;
+}
+.cv-intro-sub {
+  font-size: 0.8125rem;
+  letter-spacing: 0.3em;
+  text-transform: lowercase;
+  color: var(--cv-on-dark-muted);
+  opacity: 0;
+  animation: cv-fade 500ms var(--ease-out) 800ms forwards;
+}
+@keyframes cv-write {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes cv-line {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes cv-fade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cv-intro-up {
+  to {
+    transform: translate3d(0, -100%, 0);
+    visibility: hidden;
+  }
+}
+@keyframes cv-header-in {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+.enter-header {
+  animation: cv-header-in 600ms var(--ease-out) both;
+  animation-delay: var(--intro);
+}
+.enter,
+.enter-plane,
+.enter-draw {
+  animation-delay: calc(var(--intro) + 150ms + var(--i, 0) * 75ms) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Cartão do fundador — foto em relevo
+   ------------------------------------------------------------------------- */
+@keyframes cv-card-in {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) translate3d(0, 48px, 0) rotateX(14deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.enter-card {
+  animation: cv-card-in 900ms var(--ease-out) both;
+  animation-delay: calc(var(--intro) + 80ms);
+}
+.fc {
+  perspective: 1200px;
+}
+.fc-stage {
+  --rx: 0deg;
+  --ry: 0deg;
+  --gx: 50%;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  margin-top: 18%;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 500ms var(--ease-out);
+}
+.fc-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background:
+    radial-gradient(120% 80% at var(--gx) 0%, rgb(192 36 126 / 0.55), transparent 60%),
+    linear-gradient(160deg, #2c0f3c 0%, #1a0a24 70%);
+  border: 1px solid rgb(248 246 243 / 0.16);
+  box-shadow:
+    inset 0 1px 0 rgb(248 246 243 / 0.18),
+    0 30px 60px -20px rgb(0 0 0 / 0.6),
+    0 0 0 1px rgb(26 10 36 / 0.4);
+}
+.fc-ring {
+  position: absolute;
+  inset: auto -30% -40% auto;
+  width: 90%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px dashed rgb(248 246 243 / 0.16);
+}
+.fc-watermark {
+  position: absolute;
+  right: -12%;
+  top: 8%;
+  width: 60%;
+  height: auto;
+  opacity: 0.12;
+  filter: grayscale(0.2);
+}
+.fc-photo {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 108%;
+  max-width: none;
+  height: auto;
+  transform: translate3d(-50%, 0, 40px);
+  /* recorta laterais e base pelo cartão; o topo "sai" do cartão */
+  clip-path: inset(-60% 3.7% 0 3.7% round 0 0 24px 24px);
+  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.45)) drop-shadow(0 2px 3px rgb(0 0 0 / 0.35));
+}
+.fc-photo-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform: translateZ(40px);
+}
+.fc-plate {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 6%;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgb(26 10 36 / 0.78), rgb(26 10 36 / 0.94));
+  border: 1px solid rgb(248 246 243 / 0.14);
+  box-shadow: 0 16px 32px -12px rgb(0 0 0 / 0.55);
+  transform: translateZ(70px);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .cv-intro {
+    display: none;
+  }
+  .enter-header,
+  .enter-card {
+    animation: none;
+  }
+  .fc-stage {
+    transform: none;
+    transition: none;
+  }
   .enter,
   .enter-plane,
   .enter-draw {

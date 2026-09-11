@@ -1,25 +1,37 @@
-import { FileSignature, Braces, ShieldCheck, type LucideIcon } from "lucide-react";
+import {
+  FileSignature,
+  LockKeyhole,
+  MessagesSquare,
+  ScrollText,
+  ShieldCheck,
+  Stamp,
+  type LucideIcon,
+} from "lucide-react";
 import { practice } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
 
 const icons: Record<string, LucideIcon> = {
-  contratos: FileSignature,
-  pi: Braces,
   compliance: ShieldCheck,
+  contratos: FileSignature,
+  contencioso: ScrollText,
+  marcas: Stamp,
+  digital: LockKeyhole,
+  consultoria: MessagesSquare,
 };
 
+// Grade assimétrica: painel principal 7×2, dois de 5, três de 4.
+const spans = ["lg:col-span-7 lg:row-span-2", "lg:col-span-5", "lg:col-span-5", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4"];
+
 export function PracticeAreas() {
-  const [main, ...rest] = practice.areas;
   return (
     <section id="atuacao" aria-labelledby="atuacao-title" className="section-y border-t border-line bg-surface">
       <div className="container-cv">
         <SectionHeading id="atuacao-title" eyebrow={practice.eyebrow} title={practice.title} intro={practice.intro} />
 
-        <div className="mt-14 grid gap-5 lg:mt-16 lg:grid-cols-12 lg:grid-rows-2 lg:gap-6">
-          <AreaPanel area={main} featured className="lg:col-span-7 lg:row-span-2" />
-          {rest.map((area) => (
-            <AreaPanel key={area.id} area={area} className="lg:col-span-5" />
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-12 lg:gap-6">
+          {practice.areas.map((area, idx) => (
+            <AreaPanel key={area.id} area={area} featured={idx === 0} className={cn(spans[idx], idx === 0 && "sm:col-span-2")} />
           ))}
         </div>
       </div>
@@ -42,7 +54,7 @@ function AreaPanel({
       data-reveal
       aria-labelledby={`area-${area.id}`}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper p-7 shadow-[var(--shadow-rest)] transition-[transform,box-shadow,border-color] duration-200 ease-brand hover:-translate-y-1 hover:border-line-strong hover:shadow-[var(--shadow-lift)] sm:p-9",
+        "group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper p-7 shadow-[var(--shadow-rest)] transition-[transform,box-shadow,border-color] duration-200 ease-brand hover:-translate-y-1 hover:border-line-strong hover:shadow-[var(--shadow-lift)] sm:p-8",
         featured && "lg:p-12",
         className,
       )}
@@ -61,8 +73,8 @@ function AreaPanel({
       <h3
         id={`area-${area.id}`}
         className={cn(
-          "font-display mt-8 font-bold leading-[1.02] text-roxo-900",
-          featured ? "text-[clamp(2rem,1.4rem+2.4vw,3.25rem)]" : "text-[1.875rem]",
+          "font-display mt-7 font-bold leading-[1.02] text-roxo-900",
+          featured ? "text-[clamp(2rem,1.4rem+2.4vw,3.25rem)]" : "text-[1.75rem]",
         )}
       >
         {area.title}
@@ -82,7 +94,7 @@ function AreaPanel({
           ))}
         </ul>
       ) : (
-        <ul className="mt-7 flex flex-wrap gap-2" aria-label={`Temas em ${area.title}`}>
+        <ul className="mt-6 flex flex-wrap gap-2" aria-label={`Temas em ${area.title}`}>
           {area.topics.map((t) => (
             <li key={t} className="rounded-full bg-roxo-100 px-3.5 py-1.5 text-sm font-semibold text-roxo-700">
               {t}

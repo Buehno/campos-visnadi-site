@@ -16,6 +16,11 @@ Consulta ao 21st.dev feita em 11/09/2026. As páginas de categoria listam compon
 - Arquivo: `src/components/ui/liquid-metal-button.tsx`
 - Adaptações: API atual da lib (0.0.80: `dispose()` no lugar de `destroy()`, `u_image` vazio, uniforms de dimensionamento); dimensões fluidas (envolve qualquer botão/link); shader importado depois da hidratação via `requestIdleCallback` (não compete com o LCP); fallback metálico em CSS; parado em reduced motion; rótulo com contraste AA (o original usava #666 sobre preto, ~3:1); foco visível; removidos ripple e camadas 3D. Usado em **dois** pontos: CTA principal do hero e envio do formulário.
 
+### Componentes originais deste projeto
+- `brand/founder-card.tsx` — cartão do fundador em relevo (camadas `translateZ`, `clip-path` que deixa a cabeça "sair" do cartão, tilt por variáveis CSS). Sem biblioteca.
+- `layout/intro-curtain.tsx` — abertura em cursiva, CSS puro. Fonte Great Vibes (SIL OFL, via `next/font`).
+- Remoção de fundo da foto: `scripts/process-photo.py` com `rembg` (MIT) e modelo `u2net_human_seg`.
+
 ## Referências consultadas (sem código incorporado)
 
 | Papel | Componente | Endereço | Autor / licença | Uso |

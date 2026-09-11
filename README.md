@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Campos Visnadi Soluções Jurídicas — landing page
 
-## Getting Started
+Landing page institucional em Next.js 16 (App Router), React 19, Tailwind CSS 4 e GSAP.
 
-First, run the development server:
+## Requisitos
+
+- Node.js 20+ (testado com 24.13.1) e npm 11 — **npm é o único gerenciador** (há `package-lock.json`).
+- Python 3 + `rembg` apenas para processar a foto do fundador (opcional).
+
+## Instalação e execução
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # preencha as variáveis (ver abaixo)
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Produção:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Verificações:
 
-## Learn More
+```bash
+npx tsc --noEmit
+npm run lint
+npx vitest run
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Variáveis de ambiente
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variável | Obrigatória para publicar | Uso |
+|----------|---------------------------|-----|
+| `NEXT_PUBLIC_SITE_URL` | sim | Domínio confirmado; habilita canonical, sitemap e `url` no JSON-LD |
+| `SITE_INDEXABLE` | sim (`true` só em produção) | Qualquer outro valor mantém `noindex` e `robots: Disallow /` |
+| `RESEND_API_KEY` | sim | Chave da conta Resend do escritório |
+| `CONTACT_TO_EMAIL` | sim | Caixa que recebe os contatos |
+| `CONTACT_FROM_EMAIL` | sim | Remetente em domínio verificado no Resend |
+| `CONTACT_FORCE_FAILURE` | não | Só desenvolvimento: simula falha do provedor |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Sem as três variáveis do Resend o formulário entra em **modo de demonstração**: exibe o aviso e nunca confirma envio.
 
-## Deploy on Vercel
+### Dados enviados pelo formulário
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Nome, e-mail, empresa (opcional) e mensagem → Server Action (`src/app/actions/contact.ts`) → validação zod → API do Resend → e-mail para `CONTACT_TO_EMAIL`, com `reply_to` do remetente. Nada é gravado em banco nem registrado em log (apenas o status HTTP em caso de falha). Finalidade: responder ao contato. A política de privacidade precisa ser redigida pelo escritório.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Foto do fundador
+
+```bash
+python scripts/process-photo.py "C:/caminho/foto-original.jpg"
+```
+
+Gera `public/brand/thiago-visnadi.png` (fundo removido). O cartão do hero detecta o arquivo no build; sem ele, usa o símbolo da marca.
+
+## Estrutura
+
+```
+src/app            layout, página, Server Action, robots/sitemap, ícones
+src/components     layout/ (header, abertura), sections/, ui/ (shadcn + adaptados), motion/, brand/, seo/
+src/content        todo o texto institucional (site.ts)
+src/lib            contato (regras, validação, provedor, proteções), interação, config
+public/brand       logo oficial, símbolo, foto
+docs/              direção de design, fontes dos componentes, validação, pendências
+scripts/           processamento da foto
+```
+
+## Documentação
+
+- `docs/design-direction.md` — conceito, tokens, tipografia, movimento
+- `docs/component-sources.md` — referências do 21st.dev, licenças, adaptações
+- `docs/validation.md` — testes, acessibilidade, Lighthouse
+- `docs/content-pending.md` — o que depende do escritório antes de publicar

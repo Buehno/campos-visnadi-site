@@ -24,11 +24,14 @@ export function JsonLd() {
     },
     founder: { "@type": "Person", name: firm.founder.name },
     knowsAbout: [
+      "Compliance empresarial",
+      "Prevenção de fraudes",
       "Contratos e negociações",
+      "Processo civil",
+      "Registro de marca",
       "Propriedade intelectual",
-      "Licenciamento de software",
-      "Transferência de tecnologia",
-      "Compliance",
+      "Direito digital",
+      "Proteção de dados",
     ],
   };
   return (

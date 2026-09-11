@@ -16,6 +16,7 @@
 import type React from "react";
 import { forwardRef, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { onFirstInteraction } from "@/lib/interaction";
 
 type ShaderMountLike = {
   setSpeed: (speed?: number) => void;
@@ -80,12 +81,14 @@ function useLiquidMetal(tint: [number, number, number, number]) {
           // Sem WebGL: o fallback em CSS permanece.
         });
 
-    const w = window as Window & { requestIdleCallback?: (cb: () => void) => number };
-    const id = w.requestIdleCallback ? w.requestIdleCallback(start) : window.setTimeout(start, 200);
+    // A compilação do shader é um long task: só em ponteiro fino, sem reduced
+    // motion e depois da primeira interação. Em touch fica o fallback em CSS.
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const stop = fine && !reduced.current ? onFirstInteraction(() => void start()) : () => {};
 
     return () => {
       cancelled = true;
-      if (!w.requestIdleCallback) window.clearTimeout(id);
+      stop();
       mount.current?.dispose();
       mount.current = null;
     };

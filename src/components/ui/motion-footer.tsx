@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils";
 import { Wordmark } from "@/components/brand/wordmark";
 import { contactCta, firm, nav } from "@/content/site";
 import { hasFinePointer, motion, prefersReducedMotion } from "@/components/motion/presets";
+import { onFirstInteraction } from "@/lib/interaction";
 
 const CURTAIN_QUERY =
   "(min-width: 768px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)";
@@ -72,7 +73,8 @@ const Magnetic = React.forwardRef<HTMLElement, MagneticProps>(function Magnetic(
     if (!el || !hasFinePointer() || prefersReducedMotion()) return;
     let cleanup = () => {};
     let cancelled = false;
-    import("gsap").then(({ gsap }) => {
+    // GSAP só é carregado quando o ponteiro chega ao elemento.
+    const onFirstEnter = () => import("gsap").then(({ gsap }) => {
       if (cancelled) return;
       const max = motion.magnetic.max;
       const onMove = (e: PointerEvent) => {
@@ -90,8 +92,10 @@ const Magnetic = React.forwardRef<HTMLElement, MagneticProps>(function Magnetic(
         gsap.set(el, { clearProps: "transform" });
       };
     });
+    el.addEventListener("pointerenter", onFirstEnter, { once: true });
     return () => {
       cancelled = true;
+      el.removeEventListener("pointerenter", onFirstEnter);
       cleanup();
     };
   }, []);
@@ -127,7 +131,7 @@ export function CinematicFooter() {
     let mm: { revert: () => void } | undefined;
     let cancelled = false;
 
-    Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([{ gsap }, { ScrollTrigger }]) => {
+    const stop = onFirstInteraction(() => Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([{ gsap }, { ScrollTrigger }]) => {
       if (cancelled) return;
       gsap.registerPlugin(ScrollTrigger);
       const m = gsap.matchMedia();
@@ -156,10 +160,11 @@ export function CinematicFooter() {
           },
         );
       });
-    });
+    }));
 
     return () => {
       cancelled = true;
+      stop();
       mm?.revert();
     };
   }, []);

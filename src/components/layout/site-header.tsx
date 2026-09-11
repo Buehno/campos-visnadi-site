@@ -70,7 +70,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,color] duration-200 ease-brand",
+        "enter-header fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,color] duration-200 ease-brand",
         solid
           ? "bg-paper/95 text-roxo-900 shadow-[0_1px_0_var(--cv-line)] backdrop-blur-sm"
           : "bg-transparent text-on-dark",
