@@ -25,11 +25,13 @@ export const firm = {
     registration: "Advogado inscrito na OAB/SP",
     specialty: "Especialista em Direito Digital e Proteção de Dados",
   },
+  // Endereço confirmado pelo cliente em 14/09/2026 (substitui o da skill).
   address: {
-    street: "Rua Francisco Lopes, 144",
+    street: "Rua Barão de Teffé, 160 · Sala 505",
+    neighborhood: "Jardim Ana Maria",
     city: "Jundiaí",
     state: "SP",
-    postalCode: "13212-651",
+    postalCode: "13208-760",
   },
   trademark: {
     office: "INPI",
@@ -39,6 +41,41 @@ export const firm = {
     validUntil: "09/09/2035",
   },
   values: ["Qualidade", "Agilidade", "Gestão", "Estratégia"],
+} as const;
+
+/** Canais oficiais confirmados pelo cliente em 14/09/2026. */
+export const channels = {
+  email: "contato@camposvisnadi.com.br",
+  phoneDisplay: "+55 11 94133-2481",
+  phoneHref: "tel:+5511941332481",
+  // Mesmo número atende o WhatsApp (Chatguru).
+  whatsappHref: "https://wa.me/5511941332481",
+  social: [
+    { label: "Instagram", handle: "@campos_visnadi", href: "https://www.instagram.com/campos_visnadi/" },
+    { label: "LinkedIn", handle: "Campos Visnadi", href: "https://www.linkedin.com/company/campos-visnadi-solucoes-juridicas/" },
+    { label: "Facebook", handle: "@camposvisnadi", href: "https://www.facebook.com/camposvisnadi" },
+  ],
+  founderLinkedin: "https://www.linkedin.com/in/thiago-de-campos-visnadi-81439234/",
+} as const;
+
+/** Indicadores informados pelo escritório em 14/09/2026. */
+export const stats = {
+  eyebrow: "Em números",
+  title: "O trabalho, em números.",
+  primary: {
+    value: 700,
+    prefix: "+ de",
+    label: "Processos geridos",
+    body: "Ações judiciais e procedimentos conduzidos e acompanhados pelo escritório.",
+  },
+  secondary: {
+    value: 150,
+    prefix: "+ de",
+    label: "Empresas assessoradas",
+    body: "Negócios tradicionais e startups atendidos em diferentes áreas do Direito.",
+  },
+  since: { value: 2019, label: "Desde" },
+  coffee: { label: "Cafés compartilhados", body: "Toda boa estratégia começa com uma boa conversa." },
 } as const;
 
 export const nav = [
@@ -232,7 +269,7 @@ export const faq = {
     },
     {
       q: "Como iniciar o contato?",
-      a: "Pelo formulário nesta página. Informe seu nome, e-mail e uma descrição breve da necessidade; a empresa é opcional.",
+      a: "Pelo formulário nesta página, pelo WhatsApp +55 11 94133-2481 ou pelo e-mail contato@camposvisnadi.com.br.",
     },
     {
       q: "Quais informações apresentar no primeiro contato?",
@@ -240,7 +277,7 @@ export const faq = {
     },
     {
       q: "Onde o escritório está localizado?",
-      a: "A sede fica na Rua Francisco Lopes, 144, em Jundiaí/SP, CEP 13212-651.",
+      a: "A sede fica na Rua Barão de Teffé, 160, sala 505, Jardim Ana Maria, em Jundiaí/SP, CEP 13208-760.",
     },
   ],
 } as const;

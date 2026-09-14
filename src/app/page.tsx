@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { Context } from "@/components/sections/context";
 import { PracticeAreas } from "@/components/sections/practice-areas";
 import { Journey } from "@/components/sections/journey";
+import { Stats } from "@/components/sections/stats";
 import { Approach } from "@/components/sections/approach";
 import { Office } from "@/components/sections/office";
 import { Engagement } from "@/components/sections/engagement";
@@ -21,6 +22,7 @@ export default function Home() {
         <Hero />
         <Context />
         <PracticeAreas />
+        <Stats />
         <Journey />
         <Approach />
         <Office />

@@ -1,4 +1,4 @@
-import { firm } from "@/content/site";
+import { channels, firm } from "@/content/site";
 import { siteUrl } from "@/lib/site-config";
 
 /**
@@ -22,7 +22,10 @@ export function JsonLd() {
       postalCode: firm.address.postalCode,
       addressCountry: "BR",
     },
-    founder: { "@type": "Person", name: firm.founder.name },
+    telephone: channels.phoneDisplay.replace(/\s/g, ""),
+    email: channels.email,
+    sameAs: channels.social.map((s) => s.href),
+    founder: { "@type": "Person", name: firm.founder.name, sameAs: [channels.founderLinkedin] },
     knowsAbout: [
       "Compliance empresarial",
       "Prevenção de fraudes",

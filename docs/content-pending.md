@@ -20,6 +20,15 @@ Tudo que depende do escritório antes da publicação. Nada disto aparece na int
 - Trajetória extraída do perfil profissional (Profile.pdf / LinkedIn), **somente marcos jurídicos**: Bacharelado em Direito (Centro Universitário Padre Anchieta, 2014–2018); estágio na Del Pra Sociedade de Advogados (2018–2019, área cível); fundação do escritório (2019); sócio da Polinário & Visnadi Advogados Associados (2020–2021, não exibido); pós-graduação lato sensu em Direito, Tecnologia e Inovação com ênfase em Proteção de Dados (Instituto New Law, 2020–2021); mentor jurídico (Inovenow 2022–, eMentor 2023–); membro da ANPPD; professor e palestrante.
 - Excluídos por não serem jurídicos: carreira em educação física/karatê, MBA em gestão de pessoas, pós em psicologia do esporte, certificações G4.
 
+## Informações confirmadas pelo cliente (14/09/2026)
+
+- Endereço: Rua Barão de Teffé, 160, Sala 505, Jardim Ana Maria, Jundiaí/SP, CEP 13208-760 (substitui o endereço da skill).
+- Telefone e WhatsApp (Chatguru): +55 11 94133-2481 · E-mail: contato@camposvisnadi.com.br.
+- Redes: Instagram @campos_visnadi, LinkedIn do escritório, LinkedIn pessoal do fundador (só no JSON-LD), Facebook @camposvisnadi.
+- Indicadores exibidos na seção "Em números": + de 150 empresas assessoradas, + de 700 processos geridos, "infinitos cafés"; "Desde 2019" vem do perfil profissional.
+- **Validar:** a divulgação de quantidade de processos/clientes deve ser conferida pelo escritório frente às regras de publicidade da OAB (Provimento CFOAB vigente) antes da publicação.
+- Pendência 6 (foto) continua aberta; itens de contato/WhatsApp deixam de ser pendência.
+
 ## Validar com o escritório
 
 | Seção | Texto | Tipo |

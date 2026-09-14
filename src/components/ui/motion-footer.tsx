@@ -19,7 +19,7 @@ import { useEffect, useRef } from "react";
 import { ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "@/components/brand/wordmark";
-import { contactCta, firm, nav } from "@/content/site";
+import { channels, contactCta, firm, nav } from "@/content/site";
 import { hasFinePointer, motion, prefersReducedMotion } from "@/components/motion/presets";
 import { onFirstInteraction } from "@/lib/interaction";
 
@@ -232,8 +232,28 @@ export function CinematicFooter() {
                 © {year} {firm.legalName} · CNPJ {firm.cnpj}
               </p>
               <address className="not-italic">
-                {firm.address.street}, {firm.address.city}/{firm.address.state} · CEP {firm.address.postalCode}
+                {firm.address.street} · {firm.address.neighborhood} · {firm.address.city}/{firm.address.state} · CEP{" "}
+                {firm.address.postalCode}
               </address>
+              <p className="flex flex-wrap gap-x-4 gap-y-1">
+                <a href={`mailto:${channels.email}`} className="underline-offset-4 hover:text-on-dark hover:underline">
+                  {channels.email}
+                </a>
+                <a href={channels.phoneHref} className="underline-offset-4 hover:text-on-dark hover:underline">
+                  {channels.phoneDisplay}
+                </a>
+                {channels.social.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-offset-4 hover:text-on-dark hover:underline"
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </p>
               <p>
                 Marca registrada no {firm.trademark.office} · processo nº {firm.trademark.process}
               </p>

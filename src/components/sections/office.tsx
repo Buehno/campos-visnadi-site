@@ -42,7 +42,9 @@ export function Office() {
           <Fact term="Sede">
             {address.street}
             <br />
-            {address.city}/{address.state} · CEP {address.postalCode}
+            {address.neighborhood} · {address.city}/{address.state}
+            <br />
+            CEP {address.postalCode}
           </Fact>
           <Fact term="Marca registrada">
             {trademark.office} · processo nº {trademark.process}
