@@ -211,12 +211,6 @@ export const journey = {
       place: "Inovenow · eMentor",
       body: "Mentor jurídico com foco empresarial e digital para empreendedores e negócios em crescimento.",
     },
-    {
-      period: "2025",
-      title: "Marca registrada no INPI",
-      place: "Processo nº 933204183",
-      body: "Registro da marca Campos Visnadi Soluções Jurídicas concedido na classe 45, vigente até 2035.",
-    },
   ],
 } as const;
 

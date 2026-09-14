@@ -20,9 +20,9 @@ export default function Home() {
       {/* Conteúdo acima do rodapé em cortina: fundo opaco e z-index próprio. */}
       <main id="conteudo" tabIndex={-1} className="relative z-10 bg-paper outline-none">
         <Hero />
+        <Stats />
         <Context />
         <PracticeAreas />
-        <Stats />
         <Journey />
         <Approach />
         <Office />

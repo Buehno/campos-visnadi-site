@@ -2,7 +2,7 @@ import { firm, office } from "@/content/site";
 import { SectionHeading } from "./section-heading";
 
 export function Office() {
-  const { address, trademark, founder } = firm;
+  const { address, founder } = firm;
   return (
     <section id="escritorio" aria-labelledby="escritorio-title" className="section-y">
       <div className="container-cv">
@@ -33,7 +33,7 @@ export function Office() {
           </figure>
         </div>
 
-        <dl className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:mt-24 lg:grid-cols-4" data-reveal>
+        <dl className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3 lg:mt-24" data-reveal>
           <Fact term="Fundador e sócio-titular">
             <strong className="font-semibold text-roxo-900">{founder.name}</strong>
             <br />
@@ -45,11 +45,6 @@ export function Office() {
             {address.neighborhood} · {address.city}/{address.state}
             <br />
             CEP {address.postalCode}
-          </Fact>
-          <Fact term="Marca registrada">
-            {trademark.office} · processo nº {trademark.process}
-            <br />
-            Classe {trademark.niceClass} · vigente até {trademark.validUntil}
           </Fact>
           <Fact term="Valores">{firm.values.join(" · ")}</Fact>
         </dl>

@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
-import { hero, firm } from "@/content/site";
+import { hero } from "@/content/site";
 import { LiquidMetalLink } from "@/components/ui/liquid-metal-button";
 import { FounderCard } from "@/components/brand/founder-card";
 import { getFounderPhoto } from "@/lib/founder-photo";
@@ -47,20 +47,6 @@ export function Hero() {
             </a>
           </div>
 
-          <dl className="enter mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-on-dark-muted" style={i(4)}>
-            <div>
-              <dt className="sr-only">Sede</dt>
-              <dd>
-                Sede em {firm.address.city}/{firm.address.state}
-              </dd>
-            </div>
-            <div>
-              <dt className="sr-only">Registro de marca</dt>
-              <dd>
-                Marca registrada no {firm.trademark.office} · processo {firm.trademark.process}
-              </dd>
-            </div>
-          </dl>
         </div>
 
         <div className="lg:col-span-5">

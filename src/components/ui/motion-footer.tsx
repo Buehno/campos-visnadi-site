@@ -254,9 +254,6 @@ export function CinematicFooter() {
                   </a>
                 ))}
               </p>
-              <p>
-                Marca registrada no {firm.trademark.office} · processo nº {firm.trademark.process}
-              </p>
             </div>
             <Magnetic
               as="button"

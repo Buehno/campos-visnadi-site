@@ -4,7 +4,7 @@ import { SectionHeading } from "./section-heading";
 
 export function Stats() {
   return (
-    <section id="numeros" aria-labelledby="numeros-title" className="section-y">
+    <section id="numeros" aria-labelledby="numeros-title" className="section-y border-b border-line">
       <div className="container-cv">
         <SectionHeading id="numeros-title" eyebrow={stats.eyebrow} title={stats.title} />
         <div className="mt-12 lg:mt-14" data-reveal>
