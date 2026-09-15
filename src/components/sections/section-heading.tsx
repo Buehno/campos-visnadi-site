@@ -17,11 +17,11 @@ export function SectionHeading({ id, eyebrow, title, intro, className, tone = "l
         <span aria-hidden className="h-0.5 w-8 rounded-full bg-[image:var(--cv-gradient-accent)]" />
         {eyebrow}
       </p>
-      <h2 id={id} className="text-h2 mt-5">
+      <h2 id={id} className="type-h2 mt-5">
         {title}
       </h2>
       {intro && (
-        <p className={cn("text-lead mt-6 max-w-[38rem]", dark ? "text-on-dark-muted" : "text-muted-ink")}>
+        <p className={cn("type-lead mt-6 max-w-[38rem]", dark ? "text-on-dark-muted" : "text-muted-ink")}>
           {intro}
         </p>
       )}

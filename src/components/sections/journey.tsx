@@ -31,7 +31,7 @@ export function Journey() {
             <li key={m.title} data-reveal className="relative pb-12 pl-10 last:pb-0">
               <span aria-hidden className="absolute left-0 top-1.5 size-4 rounded-full border-[3px] border-paper bg-magenta-500 shadow-[0_0_0_1px_var(--cv-line-strong)]" />
               <p className="font-display text-xl font-semibold text-magenta-600">{m.period}</p>
-              <h3 className="text-h3 mt-1 text-roxo-900">{m.title}</h3>
+              <h3 className="type-h3 mt-1 text-roxo-900">{m.title}</h3>
               <p className="mt-1 text-sm font-semibold uppercase tracking-[0.1em] text-muted-ink">{m.place}</p>
               <p className="mt-3 max-w-[52ch] text-muted-ink">{m.body}</p>
             </li>

@@ -29,11 +29,11 @@ export function Hero() {
             {hero.eyebrow}
           </p>
 
-          <h1 id="hero-title" className="enter text-display mt-6 max-w-[11ch]" style={i(1)}>
+          <h1 id="hero-title" className="enter type-display mt-6 max-w-[11ch]" style={i(1)}>
             O Direito pode ser <span className="text-magenta-300">inovador.</span>
           </h1>
 
-          <p className="enter text-lead mt-7 max-w-[34rem] text-on-dark-muted" style={i(2)}>
+          <p className="enter type-lead mt-7 max-w-[34rem] text-on-dark-muted" style={i(2)}>
             {hero.lead}
           </p>
 

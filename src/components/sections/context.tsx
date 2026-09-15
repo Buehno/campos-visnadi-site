@@ -22,7 +22,7 @@ export function Context() {
                 {String(idx + 1).padStart(2, "0")}
               </span>
               <div>
-                <h3 className="text-h3 text-roxo-900">{item.title}</h3>
+                <h3 className="type-h3 text-roxo-900">{item.title}</h3>
                 <p className="mt-3 max-w-[60ch] text-muted-ink">{item.body}</p>
               </div>
             </li>

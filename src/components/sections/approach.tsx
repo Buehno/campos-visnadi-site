@@ -29,7 +29,7 @@ export function Approach() {
                 {idx + 1}
               </span>
               <div className="pt-2">
-                <h3 className="text-h3">
+                <h3 className="type-h3">
                   <span className="sr-only">Etapa {idx + 1}: </span>
                   {step.title}
                 </h3>

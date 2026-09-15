@@ -197,7 +197,7 @@ export function CinematicFooter() {
             <div ref={headingRef}>
               <Wordmark className="h-5 w-auto text-on-dark sm:h-6" />
               <p className="eyebrow mt-3 text-on-dark-muted">{firm.descriptor}</p>
-              <h2 id="rodape-title" className="text-display mt-10 max-w-[12ch] text-[clamp(2.75rem,1.4rem+5vw,6rem)]">
+              <h2 id="rodape-title" className="type-display mt-10 max-w-[12ch] text-[clamp(2.75rem,1.4rem+5vw,6rem)]">
                 {firm.tagline}
               </h2>
             </div>

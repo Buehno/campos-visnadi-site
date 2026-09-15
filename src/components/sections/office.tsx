@@ -38,7 +38,7 @@ export function Office() {
           </div>
           <div className="bg-surface p-7 sm:p-9 lg:col-span-4">
             <h3 className="eyebrow text-magenta-600">Visão</h3>
-            <p className="mt-4 text-lead text-roxo-900">{identity.vision}</p>
+            <p className="mt-4 type-lead text-roxo-900">{identity.vision}</p>
           </div>
           <div className="bg-surface p-7 sm:p-9 lg:col-span-4">
             <h3 className="eyebrow text-magenta-600">Valores</h3>

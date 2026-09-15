@@ -80,7 +80,7 @@ function AreaPanel({
       >
         {area.title}
       </h3>
-      <p className={cn("mt-4 max-w-[46ch] text-muted-ink", featured && "text-lead")}>{area.body}</p>
+      <p className={cn("mt-4 max-w-[46ch] text-muted-ink", featured && "type-lead")}>{area.body}</p>
 
       {featured ? (
         <ul className="mt-10 border-t border-line lg:mt-auto" aria-label={`Temas em ${area.title}`}>

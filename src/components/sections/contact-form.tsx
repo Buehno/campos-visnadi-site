@@ -97,7 +97,7 @@ export function ContactForm({ demo }: { demo: boolean }) {
         className="rounded-2xl border border-line bg-surface p-8 shadow-[var(--shadow-rest)] outline-none sm:p-10"
       >
         <CheckCircle2 aria-hidden className="size-8 text-success" />
-        <h3 className="text-h3 mt-5 text-roxo-900">Mensagem enviada.</h3>
+        <h3 className="type-h3 mt-5 text-roxo-900">Mensagem enviada.</h3>
         <p className="mt-3 max-w-[48ch] text-muted-ink">
           {state.message ?? "O escritório recebeu seu contato."}
         </p>
