@@ -73,8 +73,9 @@ function AreaPanel({
       <h3
         id={`area-${area.id}`}
         className={cn(
-          "font-display mt-7 font-bold leading-[1.02] text-roxo-900",
-          featured ? "text-[clamp(2rem,1.4rem+2.4vw,3.25rem)]" : "text-[1.75rem]",
+          "font-display mt-7 font-bold text-roxo-900",
+          // leading depois do tamanho: tailwind-merge descarta leading anterior ao text-*
+          featured ? "text-[clamp(2rem,1.4rem+2.4vw,3.25rem)] leading-[1.02]" : "text-[1.75rem] leading-[1.05]",
         )}
       >
         {area.title}

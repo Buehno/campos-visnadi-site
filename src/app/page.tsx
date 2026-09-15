@@ -6,7 +6,6 @@ import { Journey } from "@/components/sections/journey";
 import { Stats } from "@/components/sections/stats";
 import { Approach } from "@/components/sections/approach";
 import { Office } from "@/components/sections/office";
-import { Engagement } from "@/components/sections/engagement";
 import { Faq } from "@/components/sections/faq";
 import { Contact } from "@/components/sections/contact";
 import { CinematicFooter } from "@/components/ui/motion-footer";
@@ -26,7 +25,6 @@ export default function Home() {
         <Journey />
         <Approach />
         <Office />
-        <Engagement />
         <Faq />
         <Contact />
       </main>

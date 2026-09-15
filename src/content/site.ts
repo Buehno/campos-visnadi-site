@@ -22,7 +22,7 @@ export const firm = {
     name: "Thiago de Campos Visnadi",
     shortName: "Thiago Visnadi",
     role: "Fundador e sócio-titular",
-    registration: "Advogado inscrito na OAB/SP",
+    registration: "Advogado inscrito na OAB/SP 424.849",
     specialty: "Especialista em Direito Digital e Proteção de Dados",
   },
   // Endereço confirmado pelo cliente em 14/09/2026 (substitui o da skill).
@@ -40,7 +40,23 @@ export const firm = {
     grantedAt: "09/09/2025",
     validUntil: "09/09/2035",
   },
-  values: ["Qualidade", "Agilidade", "Gestão", "Estratégia"],
+  values: ["Transparência", "Comunicação", "Qualidade", "Agilidade", "Gestão", "Estratégia"],
+} as const;
+
+/** Missão, visão e valores confirmados pelo escritório em 14/09/2026. */
+export const identity = {
+  mission:
+    "Revolucionar a prestação de serviços jurídicos para impactar e transformar negócios de forma ativa.",
+  vision:
+    "Ser reconhecido como um escritório inovador, através de visão estratégica jurídica e comercial, com entrega ágil, transparente e clareza na comunicação.",
+  values: [
+    { name: "Transparência", text: "falamos a verdade sem medo" },
+    { name: "Comunicação", text: "somos acessíveis" },
+    { name: "Qualidade", text: "evolução é um reflexo da vida" },
+    { name: "Agilidade", text: "tempo é o bem mais precioso" },
+    { name: "Gestão", text: "focamos no resultado" },
+    { name: "Estratégia", text: "vamos além do óbvio" },
+  ],
 } as const;
 
 /** Canais oficiais confirmados pelo cliente em 14/09/2026. */
@@ -124,14 +140,13 @@ export const context = {
 /** Áreas confirmadas pelo cliente e alinhadas ao registro INPI. Redação proposta. */
 export const practice = {
   eyebrow: "Atuação",
-  title: "Soluções jurídicas para toda a operação.",
-  intro:
-    "Atendimento full service para empresas tradicionais e startups — da prevenção ao contencioso.",
+  title: "Compliance e soluções jurídicas para toda a operação.",
+  intro: "Atendimento personalizado — da prevenção ao contencioso.",
   areas: [
     {
       id: "compliance",
       title: "Compliance empresarial e prevenção de fraudes",
-      body: "Estruturação de programas de integridade, políticas internas, controles e orientação para identificar, prevenir e responder a riscos e irregularidades.",
+      body: "Diagnóstico, estruturação, implementação e manutenção do programa de compliance, programas de integridade, políticas e controles internos e treinamentos.",
       topics: ["Programas de compliance", "Políticas e controles internos", "Prevenção de fraudes", "Auditoria e consultoria"],
     },
     {
@@ -142,15 +157,15 @@ export const practice = {
     },
     {
       id: "contencioso",
-      title: "Ações judiciais e processo civil",
-      body: "Condução de ações judiciais e acompanhamento de processos, com comunicação clara em cada etapa.",
-      topics: ["Contencioso cível", "Acompanhamento processual"],
+      title: "Contencioso judicial",
+      body: "Gestão de processos, análise de riscos, definição de estratégia, participação de audiências e negociações.",
+      topics: ["Cível", "Trabalhista", "Cobranças"],
     },
     {
       id: "marcas",
-      title: "Registro de marca e propriedade intelectual",
-      body: "Registro e proteção de marcas, direitos autorais e licenciamento de software.",
-      topics: ["Registro de marca", "Direitos autorais"],
+      title: "Propriedade Intelectual e Industrial",
+      body: "Registro de marcas e patentes, contratos de tecnologia, licenciamentos e acompanhamento.",
+      topics: ["Pesquisa prévia", "Protocolo do registro", "Acompanhamento"],
     },
     {
       id: "digital",
@@ -160,9 +175,9 @@ export const practice = {
     },
     {
       id: "consultoria",
-      title: "Consultoria jurídica empresarial",
-      body: "Orientação preventiva para decisões do dia a dia, mediação e resolução extrajudicial de conflitos.",
-      topics: ["Consultoria preventiva", "Mediação"],
+      title: "Assessoria e Consultoria Jurídica Empresarial",
+      body: "Orientação estratégica jurídica e comercial para decisões simples e complexas do dia a dia.",
+      topics: ["Assessoria", "Consultoria", "Advocacia Ativa"],
     },
   ],
 } as const;
@@ -174,11 +189,11 @@ export const journey = {
   intro:
     "Thiago de Campos Visnadi fundou o escritório com mentalidade empreendedora, ágil e tecnológica para aproximar o Direito das decisões de negócio.",
   highlights: [
-    "Advogado inscrito na OAB/SP",
+    "Advogado inscrito na OAB/SP 424.849",
+    "MBA em Compliance",
     "Especialista em Direito Digital e Proteção de Dados",
-    "Membro da ANPPD",
-    "Mentor jurídico de startups",
-    "Professor e palestrante",
+    "Mentor Jurídico de Startups",
+    "Professor e Palestrante",
   ],
   milestones: [
     {
@@ -186,12 +201,6 @@ export const journey = {
       title: "Bacharelado em Direito",
       place: "Centro Universitário Padre Anchieta",
       body: "Formação jurídica em Jundiaí/SP.",
-    },
-    {
-      period: "2018 — 2019",
-      title: "Advocacia cível na prática",
-      place: "Del Pra Sociedade de Advogados",
-      body: "Elaboração de peças processuais, pesquisa e atuação na área cível com processo eletrônico.",
     },
     {
       period: "2019",
@@ -211,6 +220,12 @@ export const journey = {
       place: "Inovenow · eMentor",
       body: "Mentor jurídico com foco empresarial e digital para empreendedores e negócios em crescimento.",
     },
+    {
+      period: "2026 — 2027",
+      title: "MBA em Compliance",
+      place: "LEC — Legal, Ethics and Compliance",
+      body: "Formação abrangente para o setor privado, público e terceiro setor.",
+    },
   ],
 } as const;
 
@@ -219,21 +234,21 @@ export const approach = {
   eyebrow: "Abordagem",
   title: "Clareza para entender. Estratégia para decidir.",
   intro:
-    "A proposta da Campos Visnadi é tornar o Direito compreensível e útil para quem decide. Uma forma de apresentar o caminho de uma demanda:",
+    "A proposta do escritório é tornar o Direito compreensível, útil e prático para quem decide. Somos o seu sócio jurídico para:",
   steps: [
-    { title: "Entender o contexto", body: "Conversa sobre o negócio, a situação e o que precisa ser decidido." },
-    { title: "Definir o escopo", body: "Delimitação do que será tratado, com linguagem direta sobre o trabalho envolvido." },
-    { title: "Conduzir o trabalho jurídico", body: "Análise, elaboração, negociação ou atuação judicial conforme o escopo combinado." },
-    { title: "Alinhar próximos passos", body: "Explicação clara do resultado e do que cabe à empresa decidir a seguir." },
+    { title: "Entender o contexto", body: "Entender sobre o negócio de acordo com o momento e aonde quer chegar." },
+    { title: "Definir o escopo", body: "Alinhar a estratégia de aplicação dos serviços com base em necessidade e análise de risco." },
+    { title: "Condução dos trabalhos", body: "Aplicação dos serviços lado a lado com a empresa, de ponta a ponta." },
+    { title: "Alinhamento e correção de rota", body: "Acompanhamento ativo para manutenção e correção, rumo ao alcance dos resultados." },
   ],
 } as const;
 
 export const office = {
   eyebrow: "Escritório",
-  title: "Direito sem armadura.",
-  body: [
-    "A Campos Visnadi nasceu para desmistificar o Direito e torná-lo compreensível e acessível. No lugar do latim e das expressões difíceis, conversa franca e explicação clara.",
-    "O escritório atende empresas tradicionais e de tecnologia — negócios que precisam de orientação jurídica no ritmo das suas decisões.",
+  // Filosofia confirmada pelo escritório em 14/09/2026.
+  philosophy: [
+    "Nossa motivação é descobrir o mundo de possibilidades. Desafios e pedras no caminho só deixam tudo mais motivador.",
+    "Queremos deixar nossa marca entregando excelência. Se a realidade não for adaptável, criamos uma nova.",
   ],
 } as const;
 
