@@ -11,7 +11,7 @@ Tudo que depende do escritório antes da publicação. Nada disto aparece na int
 | 3 | **Revisão do conteúdo pelo escritório**, incluindo adequação às regras de publicidade da advocacia (Código de Ética e Disciplina da OAB e provimento do CFOAB vigente) | Sem parecer de conformidade — responsabilidade do escritório. |
 | 4 | **Política de privacidade** real (destinatário dos dados, guarda, base legal, canal do titular) | Sem link de privacidade até existir texto revisado. |
 | 5 | **Domínio definitivo** | `NEXT_PUBLIC_SITE_URL` vazio: sem canonical, sitemap vazio, `noindex`. |
-| 6 | **Foto oficial do fundador em arquivo** + autorização de uso de imagem | A foto foi enviada colada no chat e não existe como arquivo acessível. Rodar `python scripts/process-photo.py <arquivo>`; até lá o cartão usa o símbolo. |
+| 6 | **Foto em alta resolução** + autorização de uso de imagem | Resolvido parcialmente em 26/09/2026: a foto foi recortada (fundo transparente) e está no cartão do hero. O original tem apenas 400×400 px, o que deixa a borda do recorte irregular no ombro; enviar o arquivo original em alta resolução para refazer. |
 
 ## Informações confirmadas pelo cliente (11/09/2026)
 

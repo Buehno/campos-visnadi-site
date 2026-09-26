@@ -578,12 +578,13 @@
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: 108%;
+  width: 132%;
   max-width: none;
   height: auto;
   transform: translate3d(-50%, 0, 40px);
   /* recorta laterais e base pelo cartão; o topo "sai" do cartão */
-  clip-path: inset(-60% 3.7% 0 3.7% round 0 0 24px 24px);
+  /* lados recortados na borda do cartão: (132% - 100%) / 2 / 132% = 12.1% */
+  clip-path: inset(-60% 12.1% 0 12.1% round 0 0 24px 24px);
   filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.45)) drop-shadow(0 2px 3px rgb(0 0 0 / 0.35));
 }
 .fc-photo-fallback {
