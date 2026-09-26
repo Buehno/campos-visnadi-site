@@ -1,6 +1,5 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { Hero } from "@/components/sections/hero";
-import { Context } from "@/components/sections/context";
 import { PracticeAreas } from "@/components/sections/practice-areas";
 import { Journey } from "@/components/sections/journey";
 import { Stats } from "@/components/sections/stats";
@@ -20,7 +19,6 @@ export default function Home() {
       <main id="conteudo" tabIndex={-1} className="relative z-10 bg-paper outline-none">
         <Hero />
         <Stats />
-        <Context />
         <PracticeAreas />
         <Journey />
         <Approach />

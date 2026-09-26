@@ -111,32 +111,6 @@ export const hero = {
   secondary: { href: "#atuacao", label: "Conhecer a atuação" },
 } as const;
 
-/** Proposta editorial: situações ilustrativas, não aconselhamento individual. */
-export const context = {
-  eyebrow: "Contexto",
-  title: "Decisões do negócio também passam pelo jurídico.",
-  intro:
-    "Crescer envolve contratos, responsabilidades, marca e, às vezes, disputas. Situações em que orientação jurídica clara faz diferença:",
-  items: [
-    {
-      title: "Contratos com clientes, parceiros e fornecedores",
-      body: "Um novo cliente envia o próprio contrato. Uma parceria exige regras sobre responsabilidades. Um fornecedor passa a operar parte do negócio. Cada relação pede termos que o time consiga entender e cumprir.",
-    },
-    {
-      title: "Compliance e prevenção de fraudes",
-      body: "Políticas internas coerentes, papéis definidos e controles documentados reduzem a exposição da empresa a irregularidades — e ajudam a agir rápido quando algo foge do previsto.",
-    },
-    {
-      title: "Disputas que chegam ao Judiciário",
-      body: "Quando a negociação não resolve, a empresa precisa de condução técnica do processo civil e de explicações claras sobre riscos, etapas e decisões.",
-    },
-    {
-      title: "Marca e ativos intelectuais",
-      body: "Nome, marca, software e conteúdo são patrimônio. Registrar e proteger esses ativos evita disputas e dá segurança para crescer.",
-    },
-  ],
-} as const;
-
 /** Áreas confirmadas pelo cliente e alinhadas ao registro INPI. Redação proposta. */
 export const practice = {
   eyebrow: "Atuação",
@@ -250,13 +224,6 @@ export const office = {
     "Nossa motivação é descobrir o mundo de possibilidades. Desafios e pedras no caminho só deixam tudo mais motivador.",
     "Queremos deixar nossa marca entregando excelência. Se a realidade não for adaptável, criamos uma nova.",
   ],
-} as const;
-
-export const engagement = {
-  eyebrow: "Formas de atuação",
-  title: "O escopo começa pela compreensão da sua necessidade.",
-  body: "Cada demanda tem tamanho, prazo e contexto próprios. Por isso, a definição do trabalho parte de uma conversa sobre a situação da sua empresa — sem pacotes prontos.",
-  cta: { href: "#contato", label: "Conversar sobre uma demanda" },
 } as const;
 
 /** Apenas respostas sustentadas por fatos disponíveis/confirmados. */
