@@ -50,7 +50,7 @@ export function FounderCard({ photo }: { photo: FounderPhoto | null }) {
   }, []);
 
   return (
-    <figure className="fc enter-card mx-auto w-full max-w-[25rem]">
+    <figure className="fc enter-card mx-auto w-full max-w-[22rem]">
       <div ref={stageRef} className="fc-stage">
         <div className="fc-bg" aria-hidden="true">
           <span className="fc-ring" />
@@ -64,7 +64,7 @@ export function FounderCard({ photo }: { photo: FounderPhoto | null }) {
             width={photo.width}
             height={photo.height}
             priority
-            sizes="(min-width: 1024px) 400px, 80vw"
+            sizes="(min-width: 1024px) 424px, 85vw"
             className="fc-photo"
           />
         ) : (
@@ -74,13 +74,13 @@ export function FounderCard({ photo }: { photo: FounderPhoto | null }) {
         )}
 
         <figcaption className="fc-plate">
-          <span className="block font-display text-[1.75rem] font-bold leading-none text-on-dark">
+          <span className="block font-display text-[1.375rem] font-bold leading-tight text-on-dark">
             {firm.founder.name}
           </span>
-          <span className="mt-2 block text-sm text-on-dark-muted">
+          <span className="mt-1.5 block text-[0.8125rem] leading-snug text-on-dark-muted">
             {firm.founder.role} · {firm.founder.registration}
           </span>
-          <span className="mt-4 flex items-center justify-between gap-3 border-t border-[rgb(248_246_243/0.14)] pt-4">
+          <span className="mt-3 flex items-center justify-between gap-3 border-t border-[rgb(248_246_243/0.14)] pt-3">
             <Wordmark className="h-3.5 w-auto text-on-dark" />
             <span className="text-xs font-semibold uppercase tracking-[0.14em] text-magenta-300">
               {firm.descriptor}
