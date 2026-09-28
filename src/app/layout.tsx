@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Great_Vibes, Source_Sans_3 } from "next/font/google";
+import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 import { firm } from "@/content/site";
 import { siteUrl, isIndexable } from "@/lib/site-config";
 import { IntroCurtain } from "@/components/layout/intro-curtain";
@@ -19,14 +19,6 @@ const body = Source_Sans_3({
   subsets: ["latin"],
   weight: ["400", "600"],
   display: "swap",
-});
-
-// Cursiva usada apenas na abertura.
-const script = Great_Vibes({
-  variable: "--font-script",
-  subsets: ["latin"],
-  weight: "400",
-  display: "block",
 });
 
 const title = `${firm.fullName} · Advocacia empresarial em Jundiaí/SP`;
@@ -61,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${display.variable} ${body.variable} ${script.variable}`}
+      className={`${display.variable} ${body.variable}`}
       suppressHydrationWarning
     >
       <head>
