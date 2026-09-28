@@ -79,16 +79,16 @@ export const stats = {
   eyebrow: "Em números",
   title: "O trabalho, em números.",
   primary: {
-    value: 700,
-    prefix: "+ de",
-    label: "Processos geridos",
-    body: "Ações judiciais e procedimentos conduzidos e acompanhados pelo escritório.",
-  },
-  secondary: {
     value: 150,
     prefix: "+ de",
     label: "Empresas assessoradas",
     body: "Negócios tradicionais e startups atendidos em diferentes áreas do Direito.",
+  },
+  secondary: {
+    value: 700,
+    prefix: "+ de",
+    label: "Processos geridos",
+    body: "Ações judiciais e procedimentos conduzidos e acompanhados pelo escritório.",
   },
   since: { value: 2019, label: "Desde" },
   coffee: { label: "Cafés compartilhados", body: "Toda boa estratégia começa com uma boa conversa." },
