@@ -536,8 +536,6 @@
   --ry: 0deg;
   --gx: 50%;
   position: relative;
-  /* cartão mais baixo: a foto (376x400 no original) precisa ser ampliada o
-     mínimo possível para ainda ultrapassar o topo. */
   aspect-ratio: 1 / 1.12;
   margin-top: 14%;
   transform-style: preserve-3d;
@@ -579,13 +577,12 @@
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: 112%;
+  /* foto em pé (476x900): dimensionada pela altura do cartão; a cabeça "sai" pelo topo */
+  height: 132%;
+  width: auto;
   max-width: none;
-  height: auto;
   transform: translate3d(-50%, 0, 40px);
-  /* recorta laterais e base pelo cartão; o topo "sai" do cartão */
-  /* lados recortados na borda do cartão: (112% - 100%) / 2 / 112% = 5.4% */
-  clip-path: inset(-60% 5.4% 0 5.4% round 0 0 24px 24px);
+  clip-path: inset(-60% 0 0 0 round 0 0 24px 24px);
   filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.45)) drop-shadow(0 2px 3px rgb(0 0 0 / 0.35));
 }
 .fc-photo-fallback {
